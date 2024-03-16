@@ -1,0 +1,3 @@
+D:/Computer_Science_2_1/Numeros_Romanos/cmake-build-debug/CMakeFiles/Numeros_Romanos.dir
+D:/Computer_Science_2_1/Numeros_Romanos/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Computer_Science_2_1/Numeros_Romanos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
