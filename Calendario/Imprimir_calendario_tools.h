@@ -11,6 +11,17 @@ void loop_cout_tabs(int veces){
     }
 }
 
+//Saber si es bisiesto
+bool Bisiesto (int year){
+    if (year%4==0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+
 //Para imprimir segun los dias del mes
 void Imprimir_mes(int Dias,int& contador){
     int x=1;
@@ -32,8 +43,35 @@ void Imprimir_mes(int Dias,int& contador){
     }
 }
 
-void CALENDARIO (){
-    int Dia_inicial=
+//Para recorrer los dias necesarios
+int calendario_runner (int dia,int mes,int year){
+    int contador_dias=0,anios=year-1900,meses=1;
+    for (;anios<year;anios++){
+        if (Bisiesto(anios)){
+            contador_dias=contador_dias+366;
+        } else {
+            contador_dias=contador_dias+365;
+        }
+    }
+    for (;meses<mes;meses++){
+        if (meses%2==1||meses==8){
+            contador_dias=+31;
+        }else if (meses%2==0&&meses!=2){
+            contador_dias=+30;
+        } else if (meses==2&&!Bisiesto(anios)){
+            contador_dias=+28;
+        }else {
+            contador_dias=+29;
+        }
+    }
+    for (int dias=1;dias<dia;dias++){
+        contador_dias++;
+    }
+    return contador_dias;
+}
+void CALENDARIO_Finder (){
+    //hay que saber que El 1/1/1900 es Lunes
+
 }
 
 //Convertidor de escrito a numero del 0-6
@@ -48,16 +86,6 @@ int convertor_Dia_inicio(string& Dia){
             cout<<"Error en escritura usar el siguiente formato:\n"<<"Mayuscula primera letra y palabra en ES";
             return -1;
         }
-    }
-}
-
-//Saber si es bisiesto
-bool Bisiesto (int year){
-    if (year%4==0){
-        return true;
-    }
-    else{
-        return false;
     }
 }
 
