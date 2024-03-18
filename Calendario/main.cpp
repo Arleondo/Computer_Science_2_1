@@ -1,13 +1,17 @@
 //Crear calendario que imprima la forma del calendario de windows
-#include "Funtions.h"
+#include "Imprimir_calendario.h"
 
 int main (){
+    int day,month,year;
 
-    imprimir_calendario();
-    int dia=16,
-        mes=03,
-        year=1960;
-    string dia_semana = obtener_Dia_Semana(dia,mes,year);
-    cout<<dia_semana;
+    cout<<"Ingresar Fecha\n"<<"Dia:";
+    cin>>day;
+    cout<<"Mes:";
+    cin>>month;
+    cout<<"Year:";
+    cin>>year;
+    cout<<endl;
+    
+    imprimir_calendario(month,4);
     return 0;
 }

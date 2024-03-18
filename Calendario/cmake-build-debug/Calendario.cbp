@@ -82,7 +82,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/Computer_Science_2_1/Calendario/Funtions.h">
+		<Unit filename="D:/Computer_Science_2_1/Calendario/Imprimir_calendario.h">
+			<Option target="Calendario"/>
+		</Unit>
+		<Unit filename="D:/Computer_Science_2_1/Calendario/Imprimir_calendario_tools.h">
 			<Option target="Calendario"/>
 		</Unit>
 		<Unit filename="D:/Computer_Science_2_1/Calendario/main.cpp">
