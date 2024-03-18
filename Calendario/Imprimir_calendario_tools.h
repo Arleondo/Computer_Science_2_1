@@ -10,12 +10,14 @@ void loop_cout_tabs(int veces){
         y++;
     }
 }
+
+//Para imprimir segun los dias del mes
 void Imprimir_mes(int Dias,int& contador){
     int x=1;
     while (true) {
         if (x <= Dias) {
             for (; contador < 7; contador++) {
-                if (x <= 31) {
+                if (x <= Dias) {
                     cout << x << '\t';
                     x++;
                 } else {
@@ -31,7 +33,7 @@ void Imprimir_mes(int Dias,int& contador){
 }
 
 void CALENDARIO (){
-
+    int Dia_inicial=
 }
 
 //Convertidor de escrito a numero del 0-6
