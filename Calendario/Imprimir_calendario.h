@@ -3,7 +3,7 @@
 #include "Imprimir_calendario_tools.h"
 
 // Función para imprimir el calendario
-void imprimir_calendario(int Mes,int Dia_inicio) {
+void imprimir_calendario(int Mes,int Year,int Dia_inicio) {
 
     if (Dia_inicio>6||Dia_inicio<0){
         cout<<"Error\n"<<"Dia_inicio no valido";
@@ -51,24 +51,17 @@ void imprimir_calendario(int Mes,int Dia_inicio) {
             break;
     }
 
-    while (true) {
-        if (x <= 31) {
-            for (; contador < 7; contador++) {
-                if (x <= 31){
-                    cout << x << '\t';
-                x++;
-                }
-                else{
-                    break;
-                }
-            }
-
-            cout << endl;
-            contador = 0;
-        }
-        else{
-            break;
-        }
+    if (Mes%2==1||Mes==8){
+        Imprimir_mes(31,contador);
+    }
+    else if (Mes%2==0&&Mes!=2){
+        Imprimir_mes(30,contador);
+    }
+    else if (Mes==2&& !Bisiesto(Year)){
+        Imprimir_mes(28,contador);
+    }
+    else{
+        Imprimir_mes(29,contador);
     }
 }
 

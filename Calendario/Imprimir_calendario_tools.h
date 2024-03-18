@@ -10,6 +10,26 @@ void loop_cout_tabs(int veces){
         y++;
     }
 }
+void Imprimir_mes(int Dias,int& contador){
+    int x=1;
+    while (true) {
+        if (x <= Dias) {
+            for (; contador < 7; contador++) {
+                if (x <= 31) {
+                    cout << x << '\t';
+                    x++;
+                } else {
+                    break;
+                }
+            }
+            cout << endl;
+            contador = 0;
+        } else {
+                break;
+        }
+    }
+}
+
 void CALENDARIO (){
 
 }

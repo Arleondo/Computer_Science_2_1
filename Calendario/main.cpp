@@ -11,7 +11,7 @@ int main (){
     cout<<"Year:";
     cin>>year;
     cout<<endl;
-    
-    imprimir_calendario(month,4);
+
+    imprimir_calendario(month,2)
     return 0;
 }
