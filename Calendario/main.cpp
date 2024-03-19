@@ -12,10 +12,13 @@ int main (){
     cin>>year;
     cout<<endl;
 
-    long int Dias=calendario_runner(day,month,year);
-    string Dia_c=CALENDARIO_Finder(Dias);
-    int Dia_0= convertor_Dia_inicio(Dia_c);
+    long int Dias = calendario_runner(day,month,year);
+    string Dia_c = CALENDARIO_Finder(Dias);
+    int Dia_0 = convertor_Dia_inicio(Dia_c);
+
+    
 
     imprimir_calendario(month,year,Dia_0);
+
     return 0;
 }

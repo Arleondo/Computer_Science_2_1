@@ -57,11 +57,11 @@ void imprimir_calendario(int Mes,int Year,int Dia_inicio) {
     else if (Mes%2==0&&Mes!=2){
         Imprimir_mes(30,contador);
     }
-    else if (Mes==2&& !Bisiesto(Year)){
-        Imprimir_mes(28,contador);
-    }
-    else{
+    else if ( Mes==2 && Bisiesto(Year) ){
         Imprimir_mes(29,contador);
+    }
+    else {
+        Imprimir_mes(28,contador);
     }
 }
 
