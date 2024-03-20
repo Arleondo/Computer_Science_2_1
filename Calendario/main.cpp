@@ -18,7 +18,7 @@ int main (){
 
     
 
-    imprimir_calendario(month,year,Dia_0);
+    imprimir_calendario(day,month,year,Dia_0);
 
     return 0;
 }

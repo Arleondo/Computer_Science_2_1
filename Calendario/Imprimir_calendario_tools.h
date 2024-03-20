@@ -26,10 +26,10 @@ void loop_cout_tabs(int veces){
 
 //Saber si es bisiesto
 bool Bisiesto (int year){
+
     if (year%4 == 0 and year%100 != 0 or year%400 == 0){
         return true;
-    }
-    else{
+    } else{
         return false;
     }
 }
@@ -78,10 +78,11 @@ string convertidor_Dia_int (const int& x){
 
 //Para recorrer los dias necesarios
 long int calendario_runner (int dia,int mes,int year){
-    long int contador_dias=0,anios=year-1900,meses=1;
 
-    for (int x=0;x<anios;x++){
-        if (Bisiesto(anios)){
+    long int contador_dias=0,anios=year-1900,meses=1,x=0;
+
+    for (;x<anios;x++){
+        if (Bisiesto(x)){
             contador_dias=contador_dias+366;
         } else {
             contador_dias=contador_dias+365;
@@ -91,9 +92,9 @@ long int calendario_runner (int dia,int mes,int year){
     for (;meses<mes;meses++){
         if (meses%2==1||meses==8){
             contador_dias=contador_dias+31;
-        }else if (meses%2==0&&meses!=2){
+        }else if (meses%2==0 && meses!=2){
             contador_dias=contador_dias+30;
-        }else if (meses==2 && Bisiesto(anios)){
+        }else if (meses==2 && Bisiesto(x)){
             contador_dias=contador_dias+29;
         }else {
             contador_dias=contador_dias+28;
@@ -103,6 +104,7 @@ long int calendario_runner (int dia,int mes,int year){
     for (int y=1;y<=dia;y++){
         contador_dias=contador_dias+1;
     }
+
     return contador_dias;
 }
 
