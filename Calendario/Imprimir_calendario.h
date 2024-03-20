@@ -42,7 +42,7 @@ void imprimir_calendario(int Dia,int Mes,int Year,int Dia_inicio) {
             contador = 4;
             loop_cout_tabs(contador);
             break;
-        case 5:
+        case 5:1
             contador = 5;
             loop_cout_tabs(contador);
             break;
