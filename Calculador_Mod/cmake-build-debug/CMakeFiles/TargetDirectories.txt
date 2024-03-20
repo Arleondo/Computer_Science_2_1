@@ -1,3 +1,0 @@
-D:/Computer_Science_2_1/Calculador_Mod/cmake-build-debug/CMakeFiles/Calculador_Mod.dir
-D:/Computer_Science_2_1/Calculador_Mod/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Computer_Science_2_1/Calculador_Mod/cmake-build-debug/CMakeFiles/rebuild_cache.dir
