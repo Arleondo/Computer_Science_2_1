@@ -4,25 +4,23 @@
 
 // Función para imprimir el calendario
 void imprimir_calendario(int Dia,int Mes,int Year,int Dia_inicio) {
+
     //Comprobacion de datos
     if (Dia_inicio>6||Dia_inicio<0){
-        cout<<"Error\n"<<"Dia_inicio no valido";
-        return;
+        throw invalid_argument("Error\nDia_inicio no valido");
     }else if(Mes<0||Mes>12){
-        cout<<"Error\n"<<"Mes no valido";
-        return;
+        throw invalid_argument("Error\nMes no valido");
     }
-
 
     //Imprime el mes actual en su nombre natural
     string Meses[12] = {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SETIEMBRE",
                         "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"};
 
-    cout << Meses[Mes - 1] << endl;
+    cout << Meses[Mes - 1] << " del Anio " << Year <<endl;
     cout << "D\t" << "L\t" << "M\t" << "M\t" << "J\t" << "V\t" << "S\t" << endl;
 
     //Para tabular las veces necesarias para el dia inicio del mes
-    int y = 1,x = 1, contador = 0;
+    int  contador = 0;
     switch (Dia_inicio) {
         case 0:
             break;
@@ -42,7 +40,7 @@ void imprimir_calendario(int Dia,int Mes,int Year,int Dia_inicio) {
             contador = 4;
             loop_cout_tabs(contador);
             break;
-        case 5:1
+        case 5:
             contador = 5;
             loop_cout_tabs(contador);
             break;
@@ -54,6 +52,7 @@ void imprimir_calendario(int Dia,int Mes,int Year,int Dia_inicio) {
             break;
     }
 
+    //Llamado a la funcion imprimir mes el cual es un loop
     if (Mes%2==1||Mes==8){
         Imprimir_mes(31,contador);
     }

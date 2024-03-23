@@ -77,31 +77,31 @@ string convertidor_Dia_int (const int& x){
 }
 
 //Para recorrer los dias necesarios
-long int calendario_runner (int dia,int mes,int year){
+long int calendario_runner (int dia,int mes,int year) {
 
-    long int contador_dias=0,anios=year-1900,meses=1,x=0;
+    long int contador_dias = 0, anios = year - 1900, meses = 0, x = 0;
 
-    for (;x<anios;x++){
-        if (Bisiesto(x)){
-            contador_dias=contador_dias+366;
+    for (; x < anios; x++) {
+        if (Bisiesto(x)) {
+            contador_dias = contador_dias + 366;
         } else {
-            contador_dias=contador_dias+365;
+            contador_dias = contador_dias + 365;
         }
     }
 
-    for (;meses<mes;meses++){
-        if (meses%2==1||meses==8){
-            contador_dias=contador_dias+31;
-        }else if (meses%2==0 && meses!=2){
-            contador_dias=contador_dias+30;
-        }else if (meses==2 && Bisiesto(x)){
-            contador_dias=contador_dias+29;
-        }else {
-            contador_dias=contador_dias+28;
+    int Dias_Meses_lista [12]={31,28,31,30,31,30,31,31,30,31,30,31};
+    int Dias_Meses_lista_B [12]={31,29,31,30,31,30,31,31,30,31,30,31};
+    if (Bisiesto(year)){
+        for(;meses<mes;meses++){
+            contador_dias = contador_dias + Dias_Meses_lista_B[meses];
+        }
+    } else {
+        for(;meses<mes;meses++){
+            contador_dias = contador_dias + Dias_Meses_lista[meses];
         }
     }
 
-    for (int y=1;y<=dia;y++){
+    for (int y=1;y<dia;y++){
         contador_dias=contador_dias+1;
     }
 
