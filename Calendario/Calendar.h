@@ -31,7 +31,7 @@ private:
     };
     static int tabs(int dia_inicial){
         int i=0;
-        for (;i<=dia_inicial;i++){
+        for (;i<dia_inicial;i++){
             cout<<"\t";
         }
         return i;
@@ -70,7 +70,7 @@ public:
     //function para saber que día inicia el mes
     void Calendar_runner (){
 
-        int dia_inicio_temp = 0 , contador_anio = Year_Inicial+1 , contador_mes = 0;
+        int dia_inicio_temp = 0 , contador_anio = Year_Inicial , contador_mes = 0;
 
         for (;contador_anio<=Anios_c;contador_anio++){
             if (bisiesto_check(contador_anio)){
@@ -89,8 +89,8 @@ public:
             else {
                 dia_inicio_temp = dia_inicio_temp+ (Dias_Meses_N[contador_mes] % 7);
             }
-            dia_inicio_temp = dia_inicio_temp % 7;
         }
+        dia_inicio_temp = dia_inicio_temp % 7;
 
         if (bisiesto_check(Anios_c)){
             dia_inicio_temp -= 1;
