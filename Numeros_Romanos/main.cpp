@@ -28,6 +28,5 @@ int main() {
     cin >> numero;
     string romano = Convertor_romano(numero);
     cout << "Numero natural:\n" << numero << "\nNumero romano:\n" << romano << endl;
-    cout<<"x¯"<<"¯";
     return 0;
 }
