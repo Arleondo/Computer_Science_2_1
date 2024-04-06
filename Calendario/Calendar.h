@@ -59,7 +59,7 @@ public:
             throw out_of_range ("Mes inexistente");
         }
         //Check del año
-        if ( 1900<anio ){
+        if ( 1900<=anio ){
             Anios_c=anio;
         }
         else {
