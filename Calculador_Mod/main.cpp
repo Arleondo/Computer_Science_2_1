@@ -1,4 +1,4 @@
 //Hacer operaciones de modulo en funciones
-#include "Funtions.h"
+#include "Calculator_mod.h"
 #include <string>
 
