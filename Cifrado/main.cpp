@@ -3,9 +3,9 @@
 #include "Calculator_mod.h"
 
 void cifrador(const std::string& textoOriginal, int op1) {
-    std::ofstream FileCifrado("Cripta.txt");
+    ofstream FileCifrado("Cripta.txt");
     for (char c : textoOriginal) {
-        char n_char = (c - 2*op1) % 256;
+        char n_char = (c + 2*op1) % 256;
         FileCifrado << n_char;
     }
     FileCifrado.close();
@@ -42,6 +42,7 @@ int main() {
         if (opcion == 1) {
             //lectura del archivo
             ifstream archivoEntrada("Entrada.txt");
+
             if (!archivoEntrada) {
                 cout << "Error al abrir el archivo de entrada." << endl;
                 return 1;

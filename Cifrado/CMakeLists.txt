@@ -1,7 +1,6 @@
-cmake_minimum_required(VERSION 3.28)
-project(Cifrado)
+cmake_minimum_required (VERSION 3.26)
+project (Cifrado)
 
-set(CMAKE_CXX_STANDARD 17)
+set (CMAKE_CXX_STANDARD 17)
 
-add_executable(Cifrado main.cpp
-)
+add_executable (Cifrado main.cpp)
