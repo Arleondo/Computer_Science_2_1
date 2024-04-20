@@ -12,8 +12,16 @@ bool bin_search (int *ini, int *fin , int *&pos , int key){
     while (true) {
         int *mid = ini + (fin - ini) / 2;
 
-        if ( *mid == key ){
+        if ( *mid == key ) {
             pos = mid;
+            return true;
+        }
+        if ( *ini == key ) {
+            pos = ini;
+            return true;
+        }
+        if ( *fin == key ) {
+            pos = ini;
             return true;
         }
 
@@ -31,16 +39,25 @@ bool bin_search (int *ini, int *fin , int *&pos , int key){
     }
 }
 
-int main (){
-    int a[10] = {1,2,3,4,5,6,7,8,9,10};
+int main () {
+    int a[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
     int *p;
-
+    while (true) {
     // comprobación de encontrar lo buscado
+    int x;
+    int check;
 
-    if (bin_search(a,a+9,p,4)){
+    cout << "Ingresar numero a buscar en la lista del 1-20" << endl << "NUMERO :";
+    cin >> x;
+    if (bin_search(a, a + 19, p, x)) {
         cout << *p << endl;
         cout << p << endl;
     } else {
         cout << "No encontrado";
+    }
+
+    cout << "Desea salir? (N/n) :";
+    cin >> check;
     }
 }

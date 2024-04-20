@@ -51,8 +51,6 @@ void cocktail (int * ini, int * fin){
     }
 }
 
-
-
 int main(){
     int a [10]={5,7,3,4,2,10,9,1,8,6};
 
