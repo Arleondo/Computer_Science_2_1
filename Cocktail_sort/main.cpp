@@ -4,3 +4,64 @@ void cocktail (int * ini, int * fin)
 Hacerlo con arithmetic de punteros
 El pare se hace cuando no hay swap o ini>fin
 */
+#include <iostream>
+using namespace std;
+
+void cocktail (int * ini, int * fin){
+
+    //variable para hacer el cambio de datos
+    int temp;
+
+    //loop principal
+    while (true) {
+
+        //chekeador que haya swaps
+        int swap_check=0;
+
+        //Bubble hacia arriba
+        for (int *p=ini ; p < fin ; p++) {
+
+            if (*p > *(p + 1)) {
+                temp = *(p + 1);
+                *(p + 1) = *p;
+                *p = temp;
+                swap_check++;
+            }
+
+        }
+        fin--;
+
+        //Bubble hacia abajo
+        for (int *p=fin ; p > ini ; p--) {
+
+            if (*p < *(p - 1)) {
+                temp = *(p - 1);
+                *(p - 1) = *p;
+                *p = temp;
+                swap_check++;
+            }
+
+        }
+        ini++;
+
+        //condicionador para parar
+        if ( ini>fin || swap_check==0){
+            break;
+        }
+    }
+}
+
+
+
+int main(){
+    int a [10]={5,7,3,4,2,10,9,1,8,6};
+
+    //forma de declarar puntero para cualquier array
+    int *f = a+size(a);
+    cocktail(a,f);
+
+    //check para que el ordenamiento esté bien hecho
+    for (int i : a){
+        cout << i << " ";
+    }
+}
