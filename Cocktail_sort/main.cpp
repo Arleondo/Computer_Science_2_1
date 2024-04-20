@@ -11,12 +11,17 @@ void cocktail (int * ini, int * fin){
 
     //variable para hacer el cambio de datos
     int temp;
+    //chekeador que haya swaps
+    int swap_check=1;
 
     //loop principal
-    while (true) {
+    while (ini<fin) {
 
-        //chekeador que haya swaps
-        int swap_check=0;
+        //condicionador para parar
+        if (swap_check==0){
+            break;
+        }
+        swap_check = 0;
 
         //Bubble hacia arriba
         for (int *p=ini ; p < fin ; p++) {
@@ -31,6 +36,13 @@ void cocktail (int * ini, int * fin){
         }
         fin--;
 
+        //condicionador para parar
+        if (swap_check==0){
+            break;
+        }
+
+        swap_check = 0;
+
         //Bubble hacia abajo
         for (int *p=fin ; p > ini ; p--) {
 
@@ -44,10 +56,6 @@ void cocktail (int * ini, int * fin){
         }
         ini++;
 
-        //condicionador para parar
-        if ( ini>fin || swap_check==0){
-            break;
-        }
     }
 }
 
@@ -56,7 +64,7 @@ int main(){
               8,6,14,11,9,13,12};
 
     //forma de declarar puntero para cualquier array
-    int *f = a + size(a)-1;
+    int *f = a + size(a) - 1;
     cocktail(a,f);
 
     //check para que el ordenamiento esté bien hecho
