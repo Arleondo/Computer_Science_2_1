@@ -15,13 +15,11 @@ bool bin_search (int *ini, int *fin , int *&pos , int key){
         if ( *mid == key ) {
             pos = mid;
             return true;
-        }
-        if ( *ini == key ) {
+        }else if ( *ini == key ) {
             pos = ini;
             return true;
-        }
-        if ( *fin == key ) {
-            pos = ini;
+        }else if ( *fin == key ) {
+            pos = fin;
             return true;
         }
 
@@ -40,24 +38,30 @@ bool bin_search (int *ini, int *fin , int *&pos , int key){
 }
 
 int main () {
-    int a[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+    int a[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
                  11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
     int *p;
+
     while (true) {
     // comprobación de encontrar lo buscado
     int x;
-    int check;
+    string check;
 
     cout << "Ingresar numero a buscar en la lista del 1-20" << endl << "NUMERO :";
     cin >> x;
-    if (bin_search(a, a + 19, p, x)) {
-        cout << *p << endl;
-        cout << p << endl;
+    if (bin_search(a, a + (sizeof(a)-1), p, x)) {
+        cout << "Valor del puntero retornado :" << *p << endl;
+        cout << "Direccion de memoria del punturo :" << p << endl;
+        cout << "Direccion del elemento EN la lista :" << a+(x-1) << endl;
     } else {
-        cout << "No encontrado";
+        cout << "No encontrado" << endl;
     }
 
-    cout << "Desea salir? (N/n) :";
+    cout << "Desea salir? (Y/y) :";
     cin >> check;
+    if ( check=="Y" || check=="y"){
+        break;
+    }
+
     }
 }

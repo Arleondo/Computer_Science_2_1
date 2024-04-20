@@ -52,10 +52,11 @@ void cocktail (int * ini, int * fin){
 }
 
 int main(){
-    int a [10]={5,7,3,4,2,10,9,1,8,6};
+    int a []={5,7,3,4,2,10,15,1,
+              8,6,14,11,9,13,12};
 
     //forma de declarar puntero para cualquier array
-    int *f = a+size(a);
+    int *f = a + size(a)-1;
     cocktail(a,f);
 
     //check para que el ordenamiento esté bien hecho
