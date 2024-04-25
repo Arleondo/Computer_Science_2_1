@@ -10,7 +10,6 @@ int Multiplicacion_Matrix(int (*M)[3][3]){
         }
     }
 }
-}
 
 int main() {
     int a[3][3][3]={{{3,3,3},{3,3,3},{3,3,3}},
