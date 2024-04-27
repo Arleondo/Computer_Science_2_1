@@ -7,13 +7,13 @@ int Multiplicacion_Matrix(int (*M)[3][3]){
     int *resultado=**(M + 2);
 
     for (int *ptr_M1=**M ; ptr_M1 < **(M + 1);){
-
-        for (int *ptr_M2=**(M + 1), (*control) [3]=*(M + 1) ; ptr_M2 < **(M + 2) ; ptr_M2++ , resultado++) {
+                        //Igual que (*control)[3]=*(M+1)
+        for (int *ptr_M2=**(M + 1), *control = (**(M + 1))+3 ; ptr_M2 < **(M + 2) ; ptr_M2++ , resultado++) {
 
             // Puntero control [3] el cual hace que se resetee resultado y ptr_M1 se sume
-            if (*(control+1) == ptr_M2 ){
-                resultado-=3;
-                control++;
+            if ( control == ptr_M2 ){
+                resultado -= 3;
+                control += 3;
                 ptr_M1++;
             }
             //La multiplicacion
