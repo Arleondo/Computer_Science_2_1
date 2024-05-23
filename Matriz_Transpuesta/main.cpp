@@ -48,7 +48,7 @@ int main() {
     A = Crear_Matriz(3,4,A);
 
     //Asignador de valores para rotarlos;
-    for (int i=0, x=0; i<3 ;i++ , x++){
+    for (int i=0, x=1; i < 3 ; i++){
         for (int j=0 ; j < 4 ; j++, x++){
             A[i][j]=x;
         }
@@ -59,7 +59,6 @@ int main() {
     Imprimir_Matriz(3,4,A);
     cout << "Matriz A_Transpuesta: "<<endl;
     Imprimir_Matriz(4,3,Trans_A);
-
     Borrar_Matriz(4,Trans_A);
     Borrar_Matriz(3,A);
     return 0;
