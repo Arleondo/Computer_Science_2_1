@@ -4,10 +4,10 @@
 using namespace std;
 
 void Imprimir_Matriz (int Filas ,int Columnas ,int ** Matriz){
-    for (int i=0, x=0; i<Filas ;i++ , x++){
+    for (int **i=Matriz ; i<Matriz+Filas ; i++){
         cout <<"{";
-        for (int j=0 ; j < Columnas ; j++, x++){
-            cout <<"\t"<< Matriz[i][j];
+        for (int *j=*i ; j < (*i)+Columnas ; j++ ){
+            cout <<"\t"<< *j;
         }
         cout <<"\t}"<< endl;
     }
@@ -30,17 +30,16 @@ void Borrar_Matriz (int Filas, int ** Matriz) {
 }
 
 int ** Transpuesta_Matriz (int Filas, int Columnas, int **Matriz){
-    int ** Matriz_Return=Crear_Matriz(Columnas, Filas, Matriz);
-    //No se puede implementar con punteros debido a que en dinamica se asignan en posiciones totalmente diferentes A[0]=100, A[1]=200 , A[0][0]=100 pero A solo llegua hasta A[0][3]=116
-    for (int i=0 ; i<Columnas ; i++){
-        for (int j=0; j<Filas ; j++){
-            Matriz_Return[i][j]=Matriz[j][i];
+
+    int ** Matriz_Return = new int *[Columnas];
+    for (int **Filas_R = Matriz_Return, Colum_M=0; Filas_R < Matriz_Return + Columnas ; Filas_R++, Colum_M++){
+        *Filas_R = new int [Filas];
+        for (int **Filas_M = Matriz, *Colum_R=*Filas_R  ; Filas_M<Matriz + Filas; Filas_M++, Colum_R++){
+            *Colum_R = (*Filas_M)[Colum_M];
         }
     }
-
-
-
     return Matriz_Return;
+
 }
 
 int main() {
@@ -48,9 +47,9 @@ int main() {
     A = Crear_Matriz(3,4,A);
 
     //Asignador de valores para rotarlos;
-    for (int i=0, x=1; i < 3 ; i++){
-        for (int j=0 ; j < 4 ; j++, x++){
-            A[i][j]=x;
+    for (int **i=A, x=12; i < A+3 ; i++){
+        for (int *j=*i ; j < (*i)+4 ; j++, x--){
+            *j=x;
         }
     }
 
@@ -67,7 +66,7 @@ int main() {
 
 
 
-/* Codigo no usado (pero bien implementado), error de asignacion de memoria (La lista de *Matriz_r esta en 100 pero la de **Matriz_r esta en 300).
+/* Codigo no usado (pero implementado, para "Funcionar"), error de asignacion de  memoria (La lista de *Matriz_r esta en 100 pero la de**Matriz_r esta en 300).
  * int ** Matriz_Return=Crear_Matriz(Columnas, Filas, Matriz);
     int ** Fil_r = Matriz_Return , * Col_r = *Fil_r;
     int ** Fil=Matriz;
@@ -82,6 +81,16 @@ int main() {
         if ( Col >= *(Fil + 1) ){
             Fil++;
             Col = * Fil;
+        }
+    }
+
+    *Primera forma de "Intento" de recorrido de punteros en el heap
+
+    int ** Matriz_Return = new int *[Columnas];
+    for (int **Filas_R = Matriz_Return, Colum_M=0; Filas_R < Matriz_Return + Columnas ; Filas_R++, Colum_M++){
+        *Filas_R = new int [Filas];
+        for (int **Filas_M = Matriz, Copiador_cont=0  ; Filas_M<Matriz + Filas; Filas_M++, Copiador_cont++){
+            *((*Filas_R)+Copiador_cont) = *((*Filas_M)+Colum_M);
         }
     }
 */
