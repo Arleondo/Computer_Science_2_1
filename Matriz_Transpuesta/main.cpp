@@ -32,7 +32,7 @@ void Borrar_Matriz (int Filas, int ** Matriz) {
 int ** Transpuesta_Matriz (int Filas, int Columnas, int **Matriz){
 
     int ** Matriz_Return = new int *[Columnas];
-    int * arr [Columnas];
+    int * arr [Filas];
     for (int **memory_dir=Matriz,**p = arr;memory_dir< Matriz+Filas; memory_dir++,p++){
         *p=*memory_dir;
     }
