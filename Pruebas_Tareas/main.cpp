@@ -1,9 +1,5 @@
 #include <iostream>
 using namespace std;
-//Multiplication de matrices no cuadradas, primero tenemos A(3x4),
-//y su A_transpuesta(4x3), lo cual deberia dar la identidad.
-//Primero tenemos las funciones de Transpuesta_Matriz:
-//Inprimir_Matriz, Crear_Matriz, Borrar_Matriz;
 
 void Imprimir_Matriz (int Filas ,int Columnas ,int ** Matriz){
     for (int i=0, x=0; i<Filas ;i++ , x++){
